@@ -1,3 +1,5 @@
+package model;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -27,7 +29,7 @@ public class RadiusCalculator {
     public void setRadius(String radius) {
         this.radius = Double.valueOf(radius);
     }
-    double getArea() {
+   public double getArea() {
        return PI * (radius * radius);
         
     }

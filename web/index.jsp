@@ -43,10 +43,10 @@
 
         <p>Answer: 
             <%
-                Object obj = request.getAttribute("answer");
+                Object objRectangle = request.getAttribute("answer");
                 String answer = "";
-                if (obj != null) {
-                    answer = obj.toString();
+                if (objRectangle != null) {
+                    answer = objRectangle.toString();
 
                     out.print(answer);
                 }
@@ -75,10 +75,10 @@
         </form>
         <p>Answer: 
             <%
-                Object obj1 = request.getAttribute("area");
+                Object objCircle = request.getAttribute("area");
                 String area = "";
-                if (obj1 != null) {
-                    answer = obj1.toString();
+                if (objCircle!= null) {
+                    answer = objCircle.toString();
 
                     out.print(answer);
                     System.out.println("answer =" + answer);
@@ -108,10 +108,10 @@
             </form>
             <p>Answer: 
                 <%
-                    Object obj2 = request.getAttribute("thirdleg");
+                    Object objTriangle = request.getAttribute("thirdleg");
                     String thirdleg = "";
-                    if (obj2 != null) {
-                        answer = obj2.toString();
+                    if (objTriangle != null) {
+                        answer = objTriangle.toString();
 
                         out.print(thirdleg);
                     }

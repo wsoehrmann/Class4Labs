@@ -1,8 +1,11 @@
+package controller;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import model.AreaCalculator;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -16,10 +19,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Wesley
  */
-@WebServlet(name = "TriangleController", urlPatterns = {"/TriangleController"})
-public class TriangleController extends HttpServlet {
-
-    
+@WebServlet(name = "AreaController", urlPatterns = {"/AreaController"})
+public class AreaController extends HttpServlet {
+   
 
     /**
      * Processes requests for both HTTP
@@ -34,33 +36,44 @@ public class TriangleController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
- 
-        PrintWriter out = response.getWriter();
-        String sFLeg = request.getParameter("firstleg");
-        String sSLeg = request.getParameter("secondleg");
-        String strAnswer = "";
         
+          PrintWriter out = response.getWriter();
+          
+//          System.out.println("response = " +response.toString());
+        String sLen = request.getParameter("length");
+        String sWid = request.getParameter("width");
+        String strAnswer = "";
+        System.out.println("width =" + sLen + "length =" + sWid );
         try {
-            TriangleCalculator calc = new TriangleCalculator();
-            calc.setFirstleg(sFLeg);
-            calc.setSecondleg(sSLeg);
-            strAnswer = "" + calc.getThirdleg();
-            
+            AreaCalculator calc = new AreaCalculator();
+            calc.setLength(sLen);
+            calc.setWidth(sWid);
+            strAnswer = "" + calc.getArea();
+            System.out.println("answer" + strAnswer);
+//            System.out.println("response = " +response.toString());
         } catch(NumberFormatException nfe) {
             strAnswer = "Sorry, you must provide 2 numerical values.";
+            System.out.println("answer" + strAnswer);
+        } catch(Exception e) {
+            System.out.println("Another error " + e);
         }
      
         String destination = "/index.jsp";
-        request.setAttribute("thirdleg", strAnswer);
+        request.setAttribute("answer", strAnswer);
         
-        RequestDispatcher view =
-                request.getRequestDispatcher(destination);
+        RequestDispatcher view = request.getRequestDispatcher(destination);
+        
+//        response.toString();
+        
         view.forward(request, response);
         
     }
-
+        
+        
+     
+    
        
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

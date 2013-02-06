@@ -1,3 +1,5 @@
+package controller;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -11,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.RadiusCalculator;
 
 /**
  *
@@ -18,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "RadiusController", urlPatterns = {"/RadiusController"})
 public class RadiusController extends HttpServlet {
- 
+
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -29,34 +32,33 @@ public class RadiusController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-   response.setContentType("text/html;charset=UTF-8");
-        
+        response.setContentType("text/html;charset=UTF-8");
+
         PrintWriter out = response.getWriter();
         String sRad = request.getParameter("radius");
-        
+
         String strAnswer = "";
-        
+
         try {
             RadiusCalculator calc = new RadiusCalculator();
             calc.setRadius(sRad);
-            
+
             strAnswer = "" + calc.getArea();
-            
-        } catch(NumberFormatException nfe) {
+
+        } catch (NumberFormatException nfe) {
             strAnswer = "Sorry, you must provide 2 numerical values.";
         }
-     
+
         String destination = "/index.jsp";
         request.setAttribute("answer", strAnswer);
-        
+
         RequestDispatcher view =
                 request.getRequestDispatcher(destination);
         view.forward(request, response);
-        
+
     }
- 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

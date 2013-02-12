@@ -41,7 +41,7 @@
 
         </form>
 
-        <p>Answer: 
+        <p>Area of a Rectangle: 
             <%
                 Object objRectangle = request.getAttribute("rectAnswer");
                 String rectAnswer = "";
@@ -78,7 +78,7 @@
 
 
         </form>
-        <p>See Answer above: 
+        <p>Area Of a Circle: 
             <%
                 Object objCircle = request.getAttribute("circleAnswer");
                 String circleAnswer = "";
@@ -116,7 +116,7 @@
 
 
             </form>
-            <p>See answer above:
+            <p>Third Leg of Triangle:
                 <%
                     Object objTriangle = request.getAttribute("thirdleg");
                     String thirdleg = "";

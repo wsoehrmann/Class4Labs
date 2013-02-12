@@ -9,7 +9,7 @@ package model;
  *
  * @author Wesley
  */
-public class RadiusCalculator {
+public class AreaCircleCalculator {
 
     private Double PI = 3.14159265359;
     private double radius;

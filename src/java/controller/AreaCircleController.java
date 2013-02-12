@@ -13,14 +13,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.RadiusCalculator;
+import model.AreaCircleCalculator;
 
 /**
  *
  * @author Wesley
  */
 @WebServlet(name = "RadiusController", urlPatterns = {"/RadiusController"})
-public class RadiusController extends HttpServlet {
+public class AreaCircleController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -42,7 +42,7 @@ public class RadiusController extends HttpServlet {
         String strAnswer = "";
 
         try {
-            RadiusCalculator calc = new RadiusCalculator();
+            AreaCircleCalculator calc = new AreaCircleCalculator();
             calc.setRadius(sRad);
 
             strAnswer = "" + calc.getArea();
@@ -52,7 +52,7 @@ public class RadiusController extends HttpServlet {
         }
 
         String destination = "/index.jsp";
-        request.setAttribute("answer", strAnswer);
+        request.setAttribute("circleAnswer", strAnswer);
 
         RequestDispatcher view =
                 request.getRequestDispatcher(destination);

@@ -13,14 +13,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.TriangleCalculator;
+import model.ThirdLegOfTriangleCalculator;
 
 /**
  *
  * @author Wesley
  */
 @WebServlet(name = "TriangleController", urlPatterns = {"/TriangleController"})
-public class TriangleController extends HttpServlet {
+public class ThirdLegOfTriangleController extends HttpServlet {
 
     
 
@@ -38,14 +38,13 @@ public class TriangleController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
- 
         PrintWriter out = response.getWriter();
         String sFLeg = request.getParameter("firstleg");
         String sSLeg = request.getParameter("secondleg");
         String strAnswer = "";
         
         try {
-            TriangleCalculator calc = new TriangleCalculator();
+            ThirdLegOfTriangleCalculator calc = new ThirdLegOfTriangleCalculator();
             calc.setFirstleg(sFLeg);
             calc.setSecondleg(sSLeg);
             strAnswer = "" + calc.getThirdleg();
@@ -57,8 +56,7 @@ public class TriangleController extends HttpServlet {
         String destination = "/index.jsp";
         request.setAttribute("thirdleg", strAnswer);
         
-        RequestDispatcher view =
-                request.getRequestDispatcher(destination);
+        RequestDispatcher view = request.getRequestDispatcher(destination);
         view.forward(request, response);
         
     }

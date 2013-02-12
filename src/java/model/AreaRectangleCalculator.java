@@ -9,7 +9,7 @@ package model;
  *
  * @author Wesley
  */
-public class AreaCalculator {
+public class AreaRectangleCalculator {
 
   private  double length;
   private  double width;

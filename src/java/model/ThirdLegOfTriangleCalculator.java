@@ -9,7 +9,7 @@ package model;
  *
  * @author Wesley
  */
-public class TriangleCalculator {
+public class ThirdLegOfTriangleCalculator {
 private    double firstleg;
 private    double secondleg;
   

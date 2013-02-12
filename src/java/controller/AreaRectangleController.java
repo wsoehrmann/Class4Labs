@@ -5,7 +5,7 @@ package controller;
  * and open the template in the editor.
  */
 
-import model.AreaCalculator;
+import model.AreaRectangleCalculator;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Wesley
  */
 @WebServlet(name = "AreaController", urlPatterns = {"/AreaController"})
-public class AreaController extends HttpServlet {
+public class AreaRectangleController extends HttpServlet {
    
 
     /**
@@ -45,7 +45,7 @@ public class AreaController extends HttpServlet {
         String strAnswer = "";
         System.out.println("width =" + sLen + "length =" + sWid );
         try {
-            AreaCalculator calc = new AreaCalculator();
+            AreaRectangleCalculator calc = new AreaRectangleCalculator();
             calc.setLength(sLen);
             calc.setWidth(sWid);
             strAnswer = "" + calc.getArea();
@@ -59,7 +59,7 @@ public class AreaController extends HttpServlet {
         }
      
         String destination = "/index.jsp";
-        request.setAttribute("answer", strAnswer);
+        request.setAttribute("rectAnswer", strAnswer);
         
         RequestDispatcher view = request.getRequestDispatcher(destination);
         

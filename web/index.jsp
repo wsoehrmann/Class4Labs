@@ -13,29 +13,29 @@
             the radius of a circle or the third leg of a triangle</title>
         <script type="text/javascript">
             
-            
-          
-            
-        </script>
+                function validateRect(){
+                    if(length == null || length < 0){
+                        alert("Please enter a valid number");
+                        return false;
+                    }
+                    else if (width == null || width < 0){
+                        alert("Please enter a valid number");
+                        return false
+                    }else{
+                        return true;
+                    }
+                    
+                    
+            </script>
     </head>
     <body>
         <h1>Enter the length and width of the rectangle</h1>
-        <form action="AreaController">  
+        <form  id="rectform" name="rectForm" method="POST "action="AreaController" onsubmit="return validateRect()">  
 
 
             length:<input type="text" name="length"><br>
             width:<input type="text" name="width">
-            <script type="text/javascript">
             
-                function getArea(){
-                    if(length == null || length < 0){
-                        alert("Please enter a valid number");
-                    }
-                    else if (width == null || width < 0){
-                        alert("Please enter a valid number");
-                    }else{
-                        return area;
-            </script>
             <input type="submit" value="Submit" />
 
 
@@ -43,75 +43,85 @@
 
         <p>Answer: 
             <%
-                Object objRectangle = request.getAttribute("answer");
-                String answer = "";
+                Object objRectangle = request.getAttribute("rectAnswer");
+                String rectAnswer = "";
                 if (objRectangle != null) {
-                    answer = objRectangle.toString();
+                    rectAnswer = objRectangle.toString();
 
-                    out.print(answer);
+                    out.print(rectAnswer);
                 }
             %>
 
         </p>
-        <h1>Enter radius of circle</h>
-        <form action="RadiusController">  
-
-            radius:<input type="text"name= "radius">
-            <script type="text/javascript">
+        <h1>Enter radius of circle</h1>
+        
+        <script type="text/javascript">
             
             
-                        function getAreaOfCircle(){
+                        function validateCircle(){
                             if(radius == null || length < 0){
                                 alert ("Please enter a valid number");
-                            
+                            return false;
                             }else{
-                                return areaOfCircle;
+                                return true;
                             }
                         }
             </script>
+        
+        
+        
+        <form  id="raidform" name="raidForm" method="POST"action="RadiusController" onsubmit="return validateCircle()"     >  
+
+            radius:<input type="text"name= "radius">
+            
             <input type="submit" value="Submit" />
 
 
         </form>
-        <p>Answer: 
+        <p>See Answer above: 
             <%
-                Object objCircle = request.getAttribute("area");
-                String area = "";
+                Object objCircle = request.getAttribute("circleAnswer");
+                String circleAnswer = "";
                 if (objCircle!= null) {
-                    answer = objCircle.toString();
+                    circleAnswer = objCircle.toString();
 
-                    out.print(answer);
-                    System.out.println("answer =" + answer);
+                    out.print(circleAnswer);
+                   
                 }
             %>
 
         </p>
 
-        <h1>Enter First and second legs of a triangle</h>
-            <form>
-                Firstleg :<input type="text" name="firstleg"><br>
-                Secondleg :<input type="text"name="secondleg">
-                <script type="text/javacript">
-                    function getThirdleg(){
+        <h1>Enter First and second legs of a triangle</h1>
+        <script type="text/javacript">
+                    
+                    function validateFirstTwoLegs(){
                     if (firstleg == null || length < 0){
                     alert ("Please enter a valid number");
+                    return false;
                     }{else if (secondleg == null || length < 0){
                     alert ("Please enter a valid number");
+                    return false;
                     }else{
-                    return thirdleg:
+                    return true:
                     }
-
+                    
                 </script>
+        
+            <form  id="triangform" name="triangForm" method="POST"action="TriangleController"nsubmit="return validateFirstTwoLegs()" >
+                firstleg :<input type="text" name="firstleg"><br>
+                secondleg :<input type="text"name="secondleg">
+                
                 <input type="submit" value="Submit" />
 
 
             </form>
-            <p>Answer: 
+            <p>See answer above:
                 <%
                     Object objTriangle = request.getAttribute("thirdleg");
                     String thirdleg = "";
                     if (objTriangle != null) {
-                        answer = objTriangle.toString();
+                        thirdleg = objTriangle.toString();
 
                         out.print(thirdleg);
                     }
